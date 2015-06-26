@@ -12,7 +12,7 @@ You can use `easy_install` or `pip` to install the package.
 
 ##### 1. Simple function composition
 
-We'll convert a roman number to integer.
+We'll convert a roman number to integer and only keep numbers between 1 and 23. (Budapest's districts)
 	
 	>>> import roman
 	>>> from funcomp import Composition, absorb
@@ -22,21 +22,21 @@ We'll convert a roman number to integer.
 	...         if district > 23 or district < 1 \
 	...         else district
 	... 
-	>>> cp = Composition(str, str.strip, roman.fromRoman, int, remove_not_valid)
+	>>> get_district = Composition(str, str.strip, roman.fromRoman, int, remove_not_valid)
 	
 You can see it works like magic.
 
-	>>> cp('  XXI ')
+	>>> get_district('  XXI ')
 	21
 	
-	>>> cp('XXVI')
+	>>> get_district('XXVI')
 	None
 
 ##### 2. Absorb on error
 
 Continue to investigate the previous example. If we give an integer to the compositor it returns an error.
 
-	>>> cp(9)
+	>>> get_district(9)
 	Traceback (most recent call last):
 	  File "<stdin>", line 1, in <module>
 	  File "funcomp/__init__.py", line 60, in __call__
@@ -51,7 +51,7 @@ You can use the `absorb` method to ignore an error. It returns `None` when an er
 	>>> absorb(roman.fromRoman)(9)
 	None
 	
-... or you can use the `use_original` method to retrieve the input value.
+... or you can use the `use_original` attribute to retrieve the input value.
 	
 	>>> absorb(roman.fromRoman, use_original=True)(9)
 	9	
@@ -59,14 +59,14 @@ You can use the `absorb` method to ignore an error. It returns `None` when an er
 Regarding of this, we can use the following composition.
 
 
-	>>> cp = Composition(str, str.strip, \
+	>>> get_district = Composition(str, str.strip, \
 			absorb(roman.fromRoman, use_original=True), int, remove_not_valid)
 		
-	>>> cp('XXI')
+	>>> get_district('XXI')
 	21
-	>>> cp(' 9 ')
+	>>> get_district(' 9 ')
 	9
-	>>> cp(' 54 ')
+	>>> get_district(54)
 	None
 	
 ### Notes
