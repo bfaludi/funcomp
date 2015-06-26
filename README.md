@@ -23,13 +23,12 @@ We'll convert a roman number to integer and only keep numbers between 1 and 23. 
 	...         else district
 	... 
 	>>> get_district = Composition(str, str.strip, roman.fromRoman, \
-			int, remove_not_valid)
+	...		int, remove_not_valid)
 	
 You can see it works like magic.
 
 	>>> get_district('  XXI ')
 	21
-	
 	>>> get_district('XXVI')
 	None
 
