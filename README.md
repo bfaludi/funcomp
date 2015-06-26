@@ -60,8 +60,8 @@ Regarding of this, we can use the following composition.
 
 
 	>>> get_district = Composition(str, str.strip, \
-			absorb(roman.fromRoman, use_original=True), int, remove_not_valid)
-		
+	...		absorb(roman.fromRoman, use_original=True), int, remove_not_valid)
+	...
 	>>> get_district('XXI')
 	21
 	>>> get_district(' 9 ')
