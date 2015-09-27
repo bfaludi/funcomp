@@ -1,6 +1,6 @@
-# funcomp
+# funcomp [![Build Status](https://travis-ci.org/bfaludi/funcomp.svg)](https://travis-ci.org/bfaludi/funcomp)
 
-Function composition is simple. However I didn't find any package for this so I wrote this lightweight library which works on Python 2 & 3.
+Function composition is simple. However I didn't find any package for this so I wrote this lightweight library which works on Python **2.7** & **3.3+**.
 
 ### How to install?
 
