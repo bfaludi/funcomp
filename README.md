@@ -1,4 +1,9 @@
-# funcomp [![Build Status](https://travis-ci.org/bfaludi/funcomp.svg)](https://travis-ci.org/bfaludi/funcomp)
+# funcomp 
+
+[![Build Status](https://travis-ci.org/bfaludi/funcomp.svg)](https://travis-ci.org/bfaludi/funcomp)
+![Downloads](https://img.shields.io/pypi/dm/funcomp.svg)
+![Version](https://img.shields.io/pypi/v/funcomp.svg)
+![License](https://img.shields.io/pypi/l/funcomp.svg)
 
 Function composition is simple. However I didn't find any package for this so I wrote this lightweight library which works on Python **2.7** & **3.3+**.
 
